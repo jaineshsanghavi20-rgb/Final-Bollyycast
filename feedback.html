@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BOLLYCAST | Share Your Experience</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<style>
+body{
+  background:#0b0b0b;
+  color:#fff;
+  font-family:system-ui;
+}
+.bollycast-text {
+  animation: glow 3s infinite;
+}
+.btn {
+  transition: all 0.25s ease;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+/* BRAND */
+.brand{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:44px;
+  letter-spacing:4px;
+  color:#f5c518;
+}
+
+/* CARD */
+.feedback-wrapper{
+  max-width:900px;
+  margin:auto;
+  padding:60px 20px;
+}
+
+.feedback-card{
+  background:linear-gradient(145deg,#121212,#1a1a1a);
+  border-radius:26px;
+  padding:40px;
+  box-shadow:0 0 40px rgba(245,197,24,0.15);
+}
+
+/* STEP TITLE */
+.step-title{
+  font-size:20px;
+  margin-bottom:15px;
+  color:#f5c518;
+}
+
+/* MOOD */
+.moods{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+}
+.mood{
+  flex:1;
+  background:#111;
+  border-radius:18px;
+  padding:18px 10px;
+  text-align:center;
+  cursor:pointer;
+  transition:0.3s;
+  border:2px solid transparent;
+}
+.mood i{
+  font-size:32px;
+  margin-bottom:6px;
+}
+.mood span{
+  font-size:14px;
+  color:#bbb;
+}
+.mood.active{
+  border-color:#f5c518;
+  box-shadow:0 0 18px rgba(245,197,24,0.4);
+}
+.mood.active span{ color:#fff; }
+
+/* INPUT */
+.form-control, .form-select{
+  background:#0f0f0f;
+  border:1px solid #333;
+  color:#fff;
+  border-radius:14px;
+}
+.form-control:focus, .form-select:focus{
+  border-color:#f5c518;
+  box-shadow:none;
+}
+
+/* TOGGLE */
+.switch-box{
+  background:#111;
+  border-radius:14px;
+  padding:14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+/* BUTTON */
+.btn-gold{
+  background:#f5c518;
+  color:#000;
+  font-weight:800;
+  border-radius:16px;
+}
+.btn-gold:hover{
+  background:#d4aa17;
+}
+.back-arrow{
+    position:fixed;
+    top:30px;
+    left:30px;
+    font-size:22px;
+    color:#bbb;
+    cursor:pointer;
+    z-index:9999;
+}
+.back-arrow:hover{
+    color:#f5c518;
+}
+
+/* FEEDBACK WALL */
+.wall{
+  margin-top:50px;
+}
+.wall-card{
+  background:#111;
+  border-radius:18px;
+  padding:18px;
+  margin-bottom:14px;
+  animation:fadeUp .4s ease;
+}
+.wall-card small{
+  color:#888;
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+<i class="fa-solid fa-arrow-left back-arrow" onclick="goBack()"></i>
+<div class="feedback-wrapper">
+
+  <div class="text-center mb-5">
+    <div class="brand">
+         <span class="navbar-brand ms-3 me-auto bollycast-text">
+  <span style="color:#fff;">BOLLY</span><span style="color:#f5c518;">CAST</span>
+</span>
+    </div>
+    <p class="text-muted mt-2">
+      Real experiences from real industry professionals
+    </p>
+  </div>
+
+  <!-- FORM -->
+  <div class="feedback-card" id="formBox">
+
+    <!-- STEP 1 -->
+    <div class="mb-4">
+      <div class="step-title">1. How was your experience?</div>
+      <div class="moods">
+        <div class="mood" onclick="selectMood(1)">
+          <i class="fa-regular fa-face-angry"></i>
+          <span>Bad</span>
+        </div>
+        <div class="mood" onclick="selectMood(2)">
+          <i class="fa-regular fa-face-meh"></i>
+          <span>Okay</span>
+        </div>
+        <div class="mood" onclick="selectMood(3)">
+          <i class="fa-regular fa-face-smile"></i>
+          <span>Good</span>
+        </div>
+        <div class="mood" onclick="selectMood(4)">
+          <i class="fa-regular fa-face-grin-stars"></i>
+          <span>Excellent</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="mb-4">
+      <div class="step-title">2. You are using Bollycast as</div>
+      <select class="form-select" id="role">
+        <option value="">Select your role</option>
+        <option>Artist</option>
+        <option>Producer</option>
+        <option>Coordinator</option>
+        <option>Photographer</option>
+      </select>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="mb-4">
+      <div class="step-title">3. Tell us what worked or didn’t</div>
+      <textarea class="form-control" rows="4"
+        id="message"
+        placeholder="Be honest — your feedback directly shapes Bollycast."></textarea>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="switch-box mb-4">
+      <span>Submit anonymously</span>
+      <input type="checkbox" id="anon">
+    </div>
+
+    <!-- SUBMIT -->
+    <button class="btn btn-gold w-100" onclick="submitFeedback()">
+      Submit Feedback
+    </button>
+
+  </div>
+
+  <!-- WALL -->
+  <div class="wall">
+    <h4 class="mb-3 text-center">What people are saying</h4>
+    <div id="wallList"></div>
+  </div>
+
+</div>
+
+<script>
+let moodValue = 0;
+
+function selectMood(v){
+  moodValue = v;
+  document.querySelectorAll('.mood').forEach((m,i)=>{
+    m.classList.toggle('active', i+1 === v);
+  });
+}
+
+function submitFeedback(){
+  const role = document.getElementById("role").value;
+  const msg  = document.getElementById("message").value.trim();
+  const anon = document.getElementById("anon").checked;
+
+  if(moodValue===0 || !role || !msg){
+    alert("Please complete all steps");
+    return;
+  }
+
+  const data = {
+    role,
+    msg,
+    mood:moodValue,
+    name: anon ? "Anonymous" : role,
+    time: new Date().toLocaleDateString()
+  };
+
+  let list = JSON.parse(localStorage.getItem("bc_feedbacks")) || [];
+  list.unshift(data);
+  localStorage.setItem("bc_feedbacks", JSON.stringify(list));
+
+  document.getElementById("formBox").style.display="none";
+  renderWall();
+}
+
+function renderWall(){
+  const wall = document.getElementById("wallList");
+  let list = JSON.parse(localStorage.getItem("bc_feedbacks")) || [];
+
+  wall.innerHTML="";
+  list.slice(0,6).forEach(f=>{
+    wall.innerHTML += `
+      <div class="wall-card">
+        <strong>${f.name}</strong>
+        <small class="ms-2">${f.role}</small>
+        <p class="mt-2 mb-1">${f.msg}</p>
+        <small>${f.time}</small>
+      </div>
+    `;
+  });
+}
+
+renderWall();
+function goBack(){
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>

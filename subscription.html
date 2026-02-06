@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BOLLYCAST | Subscription</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<style>
+body{
+  background:#0b0b0b;
+  color:#fff;
+}
+
+/* HEADER */
+.bollycast-text{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:42px;
+  letter-spacing:4px;
+  color:#f5c518;
+}
+.back-strip{
+    background:#111;
+    padding:12px 25px;
+    border-bottom:1px solid #222;
+}
+.back-strip a{
+    color:#f5c518;
+    text-decoration:none;
+    font-weight:600;
+}
+.back-strip a:hover{
+    color:#fff;
+}
+/* NOTICE */
+.notice-box{
+  background:linear-gradient(135deg,#1a1a1a,#111);
+  border-left:5px solid #f5c518;
+  padding:18px 22px;
+  border-radius:12px;
+  color:#ddd;
+  box-shadow:0 0 25px rgba(245,197,24,0.2);
+}
+
+/* PLAN CARD */
+.plan-card{
+  background:linear-gradient(145deg,#121212,#1a1a1a);
+  border-radius:20px;
+  padding:32px;
+  height:100%;
+  position:relative;
+  box-shadow:0 15px 45px rgba(0,0,0,0.9);
+  transition:0.35s;
+}
+.plan-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 0 2px rgba(245,197,24,0.6),
+             0 25px 60px rgba(0,0,0,0.9);
+}
+
+/* RECOMMENDED */
+.plan-card.recommended{
+  border:2px solid #f5c518;
+}
+.badge-recommended{
+  position:absolute;
+  top:-12px;
+  right:20px;
+  background:#f5c518;
+  color:#000;
+  font-size:12px;
+  padding:6px 12px;
+  border-radius:20px;
+  font-weight:700;
+}
+
+/* PRICE */
+.price{
+  font-size:38px;
+  font-weight:700;
+  color:#f5c518;
+}
+
+/* LIST */
+.plan-card ul{
+  list-style:none;
+  padding:0;
+}
+.plan-card ul li{
+  margin-bottom:10px;
+  color:#ccc;
+}
+.plan-card ul li i{
+  color:#f5c518;
+  margin-right:8px;
+}
+
+/* BUTTON */
+.btn-gold{
+  background:#f5c518;
+  color:#000;
+  font-weight:700;
+}
+.btn-gold:hover{
+  background:#d4aa17;
+}
+
+/* CURRENT PLAN */
+.current{
+  opacity:0.6;
+  pointer-events:none;
+}
+
+/* FOOT NOTE */
+.note{
+  font-size:14px;
+  color:#aaa;
+  margin-top:25px;
+  text-align:center;
+}
+.bollycast-text{
+    font-family: 'Bebas Neue', sans-serif;
+    font-size:40px;
+    letter-spacing:4px;
+    color:#f5c518;   /* ya white */
+}
+@keyframes glow {
+  0% { text-shadow: 0 0 5px rgba(245,197,24,0.4); }
+  50% { text-shadow: 0 0 15px rgba(245,197,24,0.9); }
+  100% { text-shadow: 0 0 5px rgba(245,197,24,0.4); }
+}
+.bollycast-text {
+  animation: glow 3s infinite;
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-dark px-4">
+  <span class="navbar-brand bollycast-text">
+    <span style="color:#fff;">BOLLY</span>CAST
+  </span>
+</nav>
+<div class="back-strip">
+    <a href="setting.html">
+        <i class="fa-solid fa-arrow-left me-2"></i>
+        Back to Setting
+    </a>
+</div>
+<section class="py-5">
+<div class="container">
+
+<h2 class="mb-3">Subscription Plans</h2>
+
+<!-- 🔔 IMPORTANT NOTICE -->
+<div class="notice-box mb-5">
+  <i class="fa-solid fa-circle-exclamation me-2"></i>
+  <strong>Important:</strong>
+  ⚠️ Subscription
+  <strong>does not guarantee selection,</strong> however it significantly increases your chances of being shortlisted and selected by producers.
+</div>
+
+<div class="row g-4">
+
+<!-- FREE -->
+<div class="col-md-4">
+  <div class="plan-card current">
+    <h4>Free Plan</h4>
+    <div class="price">₹0</div>
+    <p class="text-muted">Basic visibility</p>
+    <ul>
+      <li><i class="fa-solid fa-check"></i> Profile Creation</li>
+      <li><i class="fa-solid fa-check"></i> Apply for Roles</li>
+      <li><i class="fa-solid fa-xmark text-danger"></i> Low Visibility</li>
+      <li><i class="fa-solid fa-xmark text-danger"></i> No Priority</li>
+    </ul>
+    <button class="btn btn-secondary w-100 mt-3">
+      Current Plan
+    </button>
+  </div>
+</div>
+
+<!-- PRO -->
+<div class="col-md-4">
+  <div class="plan-card recommended">
+    <span class="badge-recommended">MOST POPULAR</span>
+    <h4>Pro Artist</h4>
+    <div class="price">₹999</div>
+    <p class="text-muted">High visibility</p>
+    <ul>
+      <li><i class="fa-solid fa-check"></i> Priority Profile Listing</li>
+      <li><i class="fa-solid fa-check"></i> Higher Selection Chance</li>
+      <li><i class="fa-solid fa-check"></i> Producer Highlights</li>
+      <li><i class="fa-solid fa-check"></i> Faster Responses</li>
+    </ul>
+    <button class="btn btn-gold w-100 mt-3" onclick="subscribe('Pro Artist')">
+      Upgrade to Pro
+    </button>
+  </div>
+</div>
+
+<!-- ELITE -->
+<div class="col-md-4">
+  <div class="plan-card">
+    <h4>Elite Plus</h4>
+    <div class="price">₹1999</div>
+    <p class="text-muted">Maximum exposure</p>
+    <ul>
+      <li><i class="fa-solid fa-check"></i> Top Search Ranking</li>
+      <li><i class="fa-solid fa-check"></i> Featured Badge</li>
+      <li><i class="fa-solid fa-check"></i> Direct Producer Access</li>
+      <li><i class="fa-solid fa-check"></i> Maximum Selection Chance</li>
+    </ul>
+    <button class="btn btn-gold w-100 mt-3" onclick="subscribe('Elite Plus')">
+      Go Elite
+    </button>
+  </div>
+</div>
+
+</div>
+
+<p class="note">
+⚠️ Subscription does not guarantee selection, however it significantly increases your chances of being shortlisted and selected by producers.
+</p>
+
+</div>
+</section>
+
+<script>
+function subscribe(plan){
+  alert(
+    plan + " subscription selected.\n\n" +
+    "Demo mode:\nPayment gateway connect nahi hai.\n" +
+    "Real system me yahan payment process hoga."
+  );
+
+  localStorage.setItem("userSubscription", plan);
+}
+</script>
+
+</body>
+</html>
